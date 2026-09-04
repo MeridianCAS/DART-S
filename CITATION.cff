@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the DART-S paper.
+title: DART-S Experiment Reproduction Package
+type: software
+license: Apache-2.0
+repository-code: https://github.com/MeridianCAS/DART-S
+authors:
+  - family-names: Hu
+    given-names: Yu
+    email: huyu@ict.ac.cn
+    affiliation: "Institute of Computing Technology, CAS; University of Chinese Academy of Sciences"
+  - family-names: Zhao
+    given-names: Fangzhou
+    affiliation: Institute of Computing Technology, CAS
+  - family-names: Chen
+    given-names: Liang
+    affiliation: Institute of Computing Technology, CAS
+  - family-names: Min
+    given-names: Chen
+    affiliation: Institute of Computing Technology, CAS
+  - family-names: Li
+    given-names: Wei
+    affiliation: "Institute of Computing Technology, CAS; University of Chinese Academy of Sciences"
+  - family-names: Sang
+    given-names: Mingyuan
+    affiliation: "Institute of Computing Technology, CAS; University of Chinese Academy of Sciences"
+  - family-names: Ma
+    given-names: Jiajia
+    affiliation: Dong Feng Off-Road Vehicle Co., Ltd
+  - family-names: Chen
+    given-names: Shican
+    affiliation: Dong Feng Off-Road Vehicle Co., Ltd
+  - family-names: Pang
+    given-names: Di
+    affiliation: Dong Feng Off-Road Vehicle Co., Ltd
+  - family-names: Chen
+    given-names: Baolei
+    affiliation: Dong Feng Off-Road Vehicle Co., Ltd
+preferred-citation:
+  type: article
+  title: "DART-S: Reachability-Audited Active-Suspension Preconditioning for Off-Road Vehicle Jumps"
+  year: 2026
+  authors:
+    - family-names: Hu
+      given-names: Yu
+    - family-names: Zhao
+      given-names: Fangzhou
+    - family-names: Chen
+      given-names: Liang
+    - family-names: Min
+      given-names: Chen
+    - family-names: Li
+      given-names: Wei
+    - family-names: Sang
+      given-names: Mingyuan
+    - family-names: Ma
+      given-names: Jiajia
+    - family-names: Chen
+      given-names: Shican
+    - family-names: Pang
+      given-names: Di
+    - family-names: Chen
+      given-names: Baolei
+  journal: arXiv
+  notes: cs.RO preprint

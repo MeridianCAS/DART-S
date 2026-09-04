@@ -1,0 +1,12 @@
+{
+  "scenarios": [
+    {
+      "name": "darts_a20r7_valley12",
+      "note": "Reference kicker geometry: 20 deg face, 7 m rise, convex lip R=35 m, landing on a -12 deg valley."
+    },
+    {
+      "name": "darts_a24r7_valley12",
+      "note": "Held-out kicker geometry: 24 deg face, 7 m rise, convex lip R=35 m, landing on a -12 deg valley."
+    }
+  ]
+}

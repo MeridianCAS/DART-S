@@ -1,0 +1,2312 @@
+{
+  "attempt_limit": 650,
+  "blocks": {
+    "boundary_a35_v15": {
+      "angle_deg": 35.0,
+      "angle_uncertainty_deg": 0.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "expected_joint_arm": "nose_up",
+      "kind": "boundary",
+      "rolls": 3,
+      "speed_mps": 15.0,
+      "target_offset_mps": 0.0
+    },
+    "boundary_a40_v13": {
+      "angle_deg": 40.0,
+      "angle_uncertainty_deg": 0.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "expected_joint_arm": "nose_up",
+      "kind": "boundary",
+      "rolls": 3,
+      "speed_mps": 13.0,
+      "target_offset_mps": 0.0
+    },
+    "capture_boundary_a40_v12p65": {
+      "angle_deg": 40.0,
+      "angle_uncertainty_deg": 0.5,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "expected_joint_arm": "neutral",
+      "expected_table_arm": "neutral",
+      "kind": "capture_boundary",
+      "rolls": 3,
+      "speed_mps": 12.65,
+      "target_offset_mps": 0.0
+    },
+    "capture_negative_a36_v13p5": {
+      "angle_deg": 36.0,
+      "angle_uncertainty_deg": 0.5,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "expected_joint_arm": "neutral",
+      "expected_table_arm": "neutral",
+      "kind": "capture_negative",
+      "rolls": 3,
+      "speed_mps": 13.5,
+      "target_offset_mps": 0.0
+    },
+    "factorial_a35_v16": {
+      "angle_deg": 35.0,
+      "angle_uncertainty_deg": 0.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "expected_joint_arm": "nose_up",
+      "kind": "factorial",
+      "rolls": 3,
+      "speed_mps": 16.0,
+      "target_offset_mps": -0.6
+    },
+    "heldout_p1_a37_v15p25": {
+      "angle_deg": 37.0,
+      "angle_uncertainty_deg": 0.5,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "expected_joint_arm": "nose_up",
+      "expected_table_arm": "nose_up",
+      "kind": "capture_positive",
+      "rolls": 3,
+      "speed_mps": 15.25,
+      "target_offset_mps": 0.0
+    },
+    "heldout_p2_a39_v13": {
+      "angle_deg": 39.0,
+      "angle_uncertainty_deg": 0.5,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "expected_joint_arm": "nose_up",
+      "expected_table_arm": "nose_up",
+      "kind": "capture_positive",
+      "rolls": 3,
+      "speed_mps": 13.0,
+      "target_offset_mps": 0.0
+    },
+    "timing_a35_v11p5": {
+      "angle_deg": 35.0,
+      "angle_uncertainty_deg": 0.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "kind": "timing",
+      "phase_sweep_leads": [
+        0.15,
+        0.35
+      ],
+      "rolls": 3,
+      "speed_mps": 11.5,
+      "target_offset_mps": 0.0
+    },
+    "washboard_a35_v13": {
+      "angle_deg": 35.0,
+      "angle_uncertainty_deg": 0.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "bump_height_m": 0.08,
+      "bump_spacing_m": 1.6,
+      "expected_joint_arm": "neutral",
+      "kind": "washboard",
+      "rolls": 3,
+      "runup_bumps": 6,
+      "speed_mps": 13.0,
+      "target_offset_mps": 0.0
+    }
+  },
+  "canonical_id": "DARTS_ARXIV_CONFIRMATORY_20260813",
+  "design_sha256": "7517e10f0cd8e9415e2ee72042ab98958847f204861b083f7a45c3694a36cf9f",
+  "deviations": null,
+  "expected_commit": "c4b3e32b285f299719cfea50591aa0d2346a4589",
+  "expected_runs": 600,
+  "operational_selector_schema": "darts-operational-reachability-selector/1",
+  "preflight": {
+    "boundary_a35_v15": {
+      "available": true,
+      "calmap_support_distance": 0.009999999999999787,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 162.5,
+        "preset_radps": 125.50359442403462,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.02999999999999936,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0009851099896977062,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0009851099896977062,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "budget_only_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "budget_only",
+          "table_arm": "nose_up"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0009851099896977062,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "joint_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "joint",
+          "table_arm": "nose_up"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0009851099896977062,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_qualified_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "outcome_only",
+          "table_arm": "nose_up"
+        },
+        "state_only": {
+          "changed_from_outcome_only": true,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0009851099896977062,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "state_only_natural_already_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "nose_up"
+        }
+      },
+      "table_arm": "nose_up",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.0,
+        "corner_decisions": [
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": true,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "boundary_a40_v13": {
+      "available": true,
+      "calmap_support_distance": 0.02999999999999936,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 168.0,
+        "preset_radps": 139.5586272346952,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.02999999999999936,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "significant_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "budget_only_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "budget_only",
+          "table_arm": "nose_up"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "joint_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "joint",
+          "table_arm": "nose_up"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_qualified_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "outcome_only",
+          "table_arm": "nose_up"
+        },
+        "state_only": {
+          "changed_from_outcome_only": true,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "state_only_natural_already_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "nose_up"
+        }
+      },
+      "table_arm": "nose_up",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.0,
+        "corner_decisions": [
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": true,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "capture_boundary_a40_v12p65": {
+      "available": true,
+      "calmap_support_distance": 0.1899999999999995,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 131.79000000000002,
+        "preset_radps": 117.2040994775517,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.3200000000000003,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.04134977566931883,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "uncertainty_decision_conflict(abstain,nose_up); was: pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.04134977566931883,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "budget_only",
+          "table_arm": "neutral"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.04134977566931883,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "joint",
+          "table_arm": "neutral"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.04134977566931883,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "outcome_only",
+          "table_arm": "neutral"
+        },
+        "state_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.04134977566931883,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "neutral"
+        }
+      },
+      "table_arm": "neutral",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.5,
+        "corner_decisions": [
+          "abstain",
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": false,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "capture_negative_a36_v13p5": {
+      "available": true,
+      "calmap_support_distance": 0.9596353474106711,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 36.25,
+        "preset_radps": 12.520375880691532,
+        "source": "A5_v_over_r"
+      },
+      "natural": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.9596353474106711,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.5690127049684737,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "system_outcome_query_too_far(0.96>0.75); was: pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5690127049684737,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "budget_only",
+          "table_arm": "neutral"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5690127049684737,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "joint",
+          "table_arm": "neutral"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5690127049684737,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "outcome_only",
+          "table_arm": "neutral"
+        },
+        "state_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5690127049684737,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "neutral"
+        }
+      },
+      "table_arm": "neutral",
+      "uncertainty_audit": null
+    },
+    "factorial_a35_v16": {
+      "available": true,
+      "calmap_support_distance": 0.39000000000000057,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 162.5,
+        "preset_radps": 134.8087453024793,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.040000000000000924,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "budget_only_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "budget_only",
+          "table_arm": "nose_up"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "joint_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "joint",
+          "table_arm": "nose_up"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_qualified_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "outcome_only",
+          "table_arm": "nose_up"
+        },
+        "state_only": {
+          "changed_from_outcome_only": true,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "state_only_natural_already_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "nose_up"
+        }
+      },
+      "table_arm": "nose_up",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.0,
+        "corner_decisions": [
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": true,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "heldout_p1_a37_v15p25": {
+      "available": true,
+      "calmap_support_distance": 0.4664761515876242,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 162.5,
+        "preset_radps": 132.99311804771395,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.4148493702538307,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "budget_only_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "budget_only",
+          "table_arm": "nose_up"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "joint_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "joint",
+          "table_arm": "nose_up"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_qualified_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "outcome_only",
+          "table_arm": "nose_up"
+        },
+        "state_only": {
+          "changed_from_outcome_only": true,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "state_only_natural_already_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "nose_up"
+        }
+      },
+      "table_arm": "nose_up",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.5,
+        "corner_decisions": [
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": true,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "heldout_p2_a39_v13": {
+      "available": true,
+      "calmap_support_distance": 0.20223748416156676,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 168.0,
+        "preset_radps": 141.5690156770551,
+        "source": "gate_table_measured_wheel"
+      },
+      "natural": {
+        "budget_ok": false,
+        "displacement_ok": true,
+        "joint_ok": false,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 0.20223748416156676,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "significant_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "budget_only_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "budget_only",
+          "table_arm": "nose_up"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "joint_natural_out_preset_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "joint",
+          "table_arm": "nose_up"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_qualified_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "nose_up",
+          "strategy": "outcome_only",
+          "table_arm": "nose_up"
+        },
+        "state_only": {
+          "changed_from_outcome_only": true,
+          "natural": {
+            "budget_ok": false,
+            "displacement_ok": true,
+            "joint_ok": false,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "state_only_natural_already_in",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "nose_up"
+        }
+      },
+      "table_arm": "nose_up",
+      "uncertainty_audit": {
+        "angle_half_width_deg": 0.5,
+        "corner_decisions": [
+          "nose_up"
+        ],
+        "require_safety_v2_evidence": true,
+        "robust": true,
+        "speed_half_width_mps": 0.2
+      }
+    },
+    "washboard_a35_v13": {
+      "available": true,
+      "calmap_support_distance": 1.0004498987955368,
+      "mean_wheel_input": {
+        "mode": "nominal_mean_wheel",
+        "neutral_radps": 36.25,
+        "preset_radps": 14.759623845209187,
+        "source": "A5_v_over_r"
+      },
+      "natural": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.0,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "outcome_query_distance": 1.0004498987955368,
+      "preset": {
+        "budget_ok": true,
+        "displacement_ok": true,
+        "joint_ok": true,
+        "margin": 0.5774941657577248,
+        "state_ok": true,
+        "velocity_nullable": true
+      },
+      "reason": "system_outcome_query_too_far(1.00>0.75); was: pass_rate_gain",
+      "strategy_counterfactuals": {
+        "budget_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5774941657577248,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "budget_only",
+          "table_arm": "neutral"
+        },
+        "joint": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5774941657577248,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "joint",
+          "table_arm": "neutral"
+        },
+        "outcome_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5774941657577248,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "outcome_only",
+          "table_arm": "neutral"
+        },
+        "state_only": {
+          "changed_from_outcome_only": false,
+          "natural": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.0,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "preset": {
+            "budget_ok": true,
+            "displacement_ok": true,
+            "joint_ok": true,
+            "margin": 0.5774941657577248,
+            "state_ok": true,
+            "velocity_nullable": true
+          },
+          "reason": "outcome_table_did_not_propose_preset",
+          "schema_version": "darts-operational-reachability-selector/1",
+          "selected_arm": "neutral",
+          "strategy": "state_only",
+          "table_arm": "neutral"
+        }
+      },
+      "table_arm": "neutral",
+      "uncertainty_audit": null
+    }
+  },
+  "schema_version": "darts-arxiv-confirmatory-design/1",
+  "selector_policy": "legacy",
+  "sessions": [
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s01",
+      "session_index": 1,
+      "speed_mps": 15.0,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s01",
+      "session_index": 1,
+      "speed_mps": 13.0,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s01",
+      "session_index": 1,
+      "speed_mps": 16.0,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s01",
+      "session_index": 1,
+      "speed_mps": 11.5,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s01",
+      "session_index": 1,
+      "speed_mps": 13.0,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s01",
+      "session_index": 1,
+      "speed_mps": 15.25,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s01",
+      "session_index": 1,
+      "speed_mps": 13.0,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s01",
+      "session_index": 1,
+      "speed_mps": 13.5,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s01",
+      "session_index": 1,
+      "speed_mps": 12.65,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s02",
+      "session_index": 2,
+      "speed_mps": 13.0,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s02",
+      "session_index": 2,
+      "speed_mps": 16.0,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s02",
+      "session_index": 2,
+      "speed_mps": 11.5,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s02",
+      "session_index": 2,
+      "speed_mps": 13.0,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s02",
+      "session_index": 2,
+      "speed_mps": 15.25,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s02",
+      "session_index": 2,
+      "speed_mps": 13.0,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s02",
+      "session_index": 2,
+      "speed_mps": 13.5,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s02",
+      "session_index": 2,
+      "speed_mps": 12.65,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s02",
+      "session_index": 2,
+      "speed_mps": 15.0,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s03",
+      "session_index": 3,
+      "speed_mps": 16.0,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s03",
+      "session_index": 3,
+      "speed_mps": 11.5,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s03",
+      "session_index": 3,
+      "speed_mps": 13.0,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s03",
+      "session_index": 3,
+      "speed_mps": 15.25,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s03",
+      "session_index": 3,
+      "speed_mps": 13.0,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s03",
+      "session_index": 3,
+      "speed_mps": 13.5,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s03",
+      "session_index": 3,
+      "speed_mps": 12.65,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s03",
+      "session_index": 3,
+      "speed_mps": 15.0,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s03",
+      "session_index": 3,
+      "speed_mps": 13.0,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s04",
+      "session_index": 4,
+      "speed_mps": 11.5,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s04",
+      "session_index": 4,
+      "speed_mps": 13.0,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s04",
+      "session_index": 4,
+      "speed_mps": 15.25,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s04",
+      "session_index": 4,
+      "speed_mps": 13.0,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s04",
+      "session_index": 4,
+      "speed_mps": 13.5,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s04",
+      "session_index": 4,
+      "speed_mps": 12.65,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s04",
+      "session_index": 4,
+      "speed_mps": 15.0,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s04",
+      "session_index": 4,
+      "speed_mps": 13.0,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s04",
+      "session_index": 4,
+      "speed_mps": 16.0,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s05",
+      "session_index": 5,
+      "speed_mps": 13.0,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s05",
+      "session_index": 5,
+      "speed_mps": 15.25,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s05",
+      "session_index": 5,
+      "speed_mps": 13.0,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s05",
+      "session_index": 5,
+      "speed_mps": 13.5,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s05",
+      "session_index": 5,
+      "speed_mps": 12.65,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s05",
+      "session_index": 5,
+      "speed_mps": 15.0,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s05",
+      "session_index": 5,
+      "speed_mps": 13.0,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s05",
+      "session_index": 5,
+      "speed_mps": 16.0,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s05",
+      "session_index": 5,
+      "speed_mps": 11.5,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s06",
+      "session_index": 6,
+      "speed_mps": 15.25,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s06",
+      "session_index": 6,
+      "speed_mps": 13.0,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s06",
+      "session_index": 6,
+      "speed_mps": 13.5,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s06",
+      "session_index": 6,
+      "speed_mps": 12.65,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s06",
+      "session_index": 6,
+      "speed_mps": 15.0,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s06",
+      "session_index": 6,
+      "speed_mps": 13.0,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s06",
+      "session_index": 6,
+      "speed_mps": 16.0,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s06",
+      "session_index": 6,
+      "speed_mps": 11.5,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s06",
+      "session_index": 6,
+      "speed_mps": 13.0,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s07",
+      "session_index": 7,
+      "speed_mps": 13.0,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s07",
+      "session_index": 7,
+      "speed_mps": 13.5,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s07",
+      "session_index": 7,
+      "speed_mps": 12.65,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s07",
+      "session_index": 7,
+      "speed_mps": 15.0,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s07",
+      "session_index": 7,
+      "speed_mps": 13.0,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s07",
+      "session_index": 7,
+      "speed_mps": 16.0,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s07",
+      "session_index": 7,
+      "speed_mps": 11.5,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s07",
+      "session_index": 7,
+      "speed_mps": 13.0,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s07",
+      "session_index": 7,
+      "speed_mps": 15.25,
+      "within_round_order": 9
+    },
+    {
+      "angle_deg": 36.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_negative_a36_v13p5",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-negative-a36-v13p5-s08",
+      "session_index": 8,
+      "speed_mps": 13.5,
+      "within_round_order": 1
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "capture_boundary_a40_v12p65",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-capture-boundary-a40-v12p65-s08",
+      "session_index": 8,
+      "speed_mps": 12.65,
+      "within_round_order": 2
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a35_v15",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a35-v15-s08",
+      "session_index": 8,
+      "speed_mps": 15.0,
+      "within_round_order": 3
+    },
+    {
+      "angle_deg": 40.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "boundary_a40_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-boundary-a40-v13-s08",
+      "session_index": 8,
+      "speed_mps": 13.0,
+      "within_round_order": 4
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "dart_guarded",
+        "arxiv_outcome_only",
+        "arxiv_budget_only",
+        "arxiv_joint"
+      ],
+      "block_id": "factorial_a35_v16",
+      "expected_runs": 18,
+      "rolls": 3,
+      "session_id": "axv-factorial-a35-v16-s08",
+      "session_index": 8,
+      "speed_mps": 16.0,
+      "within_round_order": 5
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "neutral",
+        "nose_up",
+        "phase_015",
+        "phase_035"
+      ],
+      "block_id": "timing_a35_v11p5",
+      "expected_runs": 12,
+      "rolls": 3,
+      "session_id": "axv-timing-a35-v11p5-s08",
+      "session_index": 8,
+      "speed_mps": 11.5,
+      "within_round_order": 6
+    },
+    {
+      "angle_deg": 35.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint",
+        "dart_s_forced"
+      ],
+      "block_id": "washboard_a35_v13",
+      "expected_runs": 9,
+      "rolls": 3,
+      "session_id": "axv-washboard-a35-v13-s08",
+      "session_index": 8,
+      "speed_mps": 13.0,
+      "within_round_order": 7
+    },
+    {
+      "angle_deg": 37.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p1_a37_v15p25",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p1-a37-v15p25-s08",
+      "session_index": 8,
+      "speed_mps": 15.25,
+      "within_round_order": 8
+    },
+    {
+      "angle_deg": 39.0,
+      "arms": [
+        "dart_guarded",
+        "arxiv_joint"
+      ],
+      "block_id": "heldout_p2_a39_v13",
+      "expected_runs": 6,
+      "rolls": 3,
+      "session_id": "axv-heldout-p2-a39-v13-s08",
+      "session_index": 8,
+      "speed_mps": 13.0,
+      "within_round_order": 9
+    }
+  ],
+  "source_hashes": {
+    "artifacts/feipo_viz/asusp_gate_table.json": "94ef351dd270b4c7e315ca8aee5c2546b9a1c6ad7a67b831e14c41b602fb5db2",
+    "artifacts/feipo_viz/darts_system_outcome_table.json": "8d7e4714854571256fcc8ee44c13aa2e181e1d67620046a10ce56248f90fc267",
+    "control/feipo/cluster_stats.py": "12637f5ee91ed23cb8d302affaaf1532cff70dd7067468600b39c74b0e10911c",
+    "control/feipo/landing_safety.py": "8bcdaf0ae94d442c367aedf5ddee6e6baf82980c625050aae14f5ac664b3c290",
+    "control/feipo/operational_reachability_selector.py": "e28ef8acab3e94edca885cb2096acb770c409be139648116b53e6764870f8929",
+    "control/feipo/reachability.py": "3602eaf02b332262a4f37b89a96f608d0dbc4070e4e851c657374f764660d21f",
+    "control/feipo/susp_precondition.py": "e052ba309760496a2967f2370c0cbf31dec6b5edc5e559c781d15c10724ccc2d",
+    "control/feipo/wheel_budget.py": "1bd06ab7dc77e7cbb63139cac151162968aeb1993ba03a462a4c6200a53e30c7",
+    "docs/daily/2026-08-13-darts_arxiv_confirmatory_claim_profile.md": "4f19c0872e781992ca76a27ba7dd40cd90caae81095d4b701bfe1d8efdad1408",
+    "docs/daily/2026-08-13-darts_arxiv_confirmatory_launch_amendment.md": "f790fffdf6dfddec64b218eb2f3e6f27500200ff161c281c09657846b1b94f2a",
+    "docs/daily/2026-08-13-darts_arxiv_confirmatory_prereg.md": "244210574ca2bc4e284fd32ce7e6334e156ac42b81588adc60b8466d47e306e1",
+    "scripts/_darts_arxiv_confirmatory_analysis.py": "005d70243dd8ddd4a22319acb41a7b4a2b04ecbe858224fbc54da2e0c40133b1",
+    "scripts/_darts_arxiv_confirmatory_design.py": "ed5060beb9e7f95bbd273f8c2387d143d57106ee04035dad626e4b7d7e587052",
+    "scripts/_darts_session_reanalysis.py": "cbed8df0b629b87ebe88c58d423c2887274563408867e7b383752c3c56516b33",
+    "scripts/_feipo_asusp_takeoff_ab.py": "340c0e889cfb7a41f9533d6bedad9c2efc7984dd0aae42554cce520bf2e350fa",
+    "scripts/_queue_20260813_darts_arxiv_confirmatory.sh": "05e5848b3048b55aadd2b972a017b0406695f9a3acccfd6ef36169de90b3a723"
+  },
+  "threshold_semantics_radps": {
+    "certificate_envelope": 125.7,
+    "drivetrain_hard_limit": 221.2,
+    "operational_guard": 200.0
+  },
+  "walltime_limit_hours": 20
+}

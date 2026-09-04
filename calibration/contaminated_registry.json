@@ -1,0 +1,11 @@
+{
+  "_README": "Registry of data files whose time base cannot be trusted. control/darts/provenance.py::assert_time_integrity() consults this file and raises (fail-closed) on a hit, so contaminated data cannot be read as if it were clean. Entries are matched by glob against the resolved path. This package ships no contaminated data: every file it produces carries a _provenance block whose time_integrity_ok flag is computed at write time, and the deterministic-stepping path sets it true.",
+  "bug": "Calling control.resume() drops BeamNG out of deterministic stepping, after which control.step(1) advances by a wall-clock interval that drifts with computational load instead of the fixed simulation step. Every time-dependent quantity computed from step counts (airtime, flight time, any per-step rate, airborne authority) is then invalid, while time-independent quantities such as landing angles remain valid.",
+  "fix_commit": "5809bb3",
+  "fix_date": "2026-06-17",
+  "contaminated": [],
+  "clean_after": {
+    "rule": "Data written on the deterministic-stepping path with _provenance.time_integrity_ok=true is clean. The stamp is the evidence, not this file.",
+    "how_to_add": "Append an object with globs, reason, affected_fields and fix_commit to contaminated[] when a run is found to have an unverifiable time base."
+  }
+}

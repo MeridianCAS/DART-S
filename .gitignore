@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+nohup.out
+# Generated data: keep directory structure, ignore contents
+data/cohorts/*
+!data/cohorts/.gitkeep
+data/derived/*
+!data/derived/.gitkeep
+data/queue_runs/*
+!data/queue_runs/.gitkeep

@@ -1,0 +1,5 @@
+# Experiment re-runs require Windows and a BeamNG.tech 0.38.3 license.
+beamngpy>=1.29
+numpy>=1.24
+# Statistics for the confirmatory analysis and the certificate cross-validation.
+scipy>=1.11

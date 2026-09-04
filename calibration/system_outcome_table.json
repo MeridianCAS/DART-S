@@ -1,0 +1,144 @@
+{
+  "schema_version": "darts-system-outcome/1",
+  "endpoint": "post_touchdown_safety_v2",
+  "data_role": "calibration_for_future_independent_evaluation",
+  "source": "artifacts/eval/darts_nocut_upgrade_20260806/e9/s3_verdict.json",
+  "source_sha256": "04ef187e4f75b9537d15cbeccedb946ad2509b5496cbe91be0ef821f634091ab",
+  "selection_rule": "N>=30 paired, speed matched, Holm-significant McNemar, and system-only discordance exceeds DART-only discordance",
+  "max_query_distance": 0.25,
+  "entries": [
+    {
+      "cell_id": "a35_v15",
+      "angle_deg": 35.0,
+      "speed_mps": 14.97,
+      "nominal_condition_speed_mps": 15.0,
+      "query_speed_basis": "pooled_median_latch_gspd",
+      "geometry_family": "tabletop_fillet",
+      "preset_action": "static_preset",
+      "n_pairs": 30,
+      "system_safe": 30,
+      "system_n": 30,
+      "dart_safe": 14,
+      "dart_n": 30,
+      "discordant_system_only": 16,
+      "discordant_dart_only": 0,
+      "mcnemar_exact_p": 3.0517578125e-05,
+      "mcnemar_holm_p": 3.05e-05,
+      "speed_matched": true,
+      "deploy_eligible": true,
+      "decision_reason": "independent_system_safety_gain"
+    },
+    {
+      "cell_id": "a35_v16",
+      "angle_deg": 35.0,
+      "speed_mps": 15.36,
+      "nominal_condition_speed_mps": 16.0,
+      "query_speed_basis": "pooled_median_latch_gspd",
+      "geometry_family": "tabletop_fillet",
+      "preset_action": "static_preset",
+      "n_pairs": 30,
+      "system_safe": 30,
+      "system_n": 30,
+      "dart_safe": 2,
+      "dart_n": 30,
+      "discordant_system_only": 28,
+      "discordant_dart_only": 0,
+      "mcnemar_exact_p": 7.450580596923828e-09,
+      "mcnemar_holm_p": 1.49e-08,
+      "speed_matched": true,
+      "deploy_eligible": true,
+      "decision_reason": "independent_system_safety_gain"
+    },
+    {
+      "cell_id": "a40_v13",
+      "angle_deg": 40.0,
+      "speed_mps": 12.97,
+      "nominal_condition_speed_mps": 13.0,
+      "query_speed_basis": "pooled_median_latch_gspd",
+      "geometry_family": "tabletop_fillet",
+      "preset_action": "static_preset",
+      "n_pairs": 30,
+      "system_safe": 30,
+      "system_n": 30,
+      "dart_safe": 0,
+      "dart_n": 30,
+      "discordant_system_only": 30,
+      "discordant_dart_only": 0,
+      "mcnemar_exact_p": 1.862645149230957e-09,
+      "mcnemar_holm_p": 5.59e-09,
+      "speed_matched": true,
+      "deploy_eligible": true,
+      "decision_reason": "independent_system_safety_gain"
+    }
+  ],
+  "_provenance": {
+    "schema_version": "darts-aggregate/1",
+    "code_commit": "c4b3e32",
+    "time_integrity_ok": true,
+    "time_integrity_reason": "every source passed the time-base check",
+    "sources": [
+      {
+        "file": "s3_verdict.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v15_s1.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v15_s2.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v15_s3.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v16_s1.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v16_s2.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a35_v16_s3.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a40_v13_s1.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a40_v13_s2.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      },
+      {
+        "file": "darts_bench_ncutg9_a40_v13_s3.json",
+        "time_integrity_ok": true,
+        "time_metrics_required": true,
+        "accepted": true
+      }
+    ],
+    "generated_at": "2026-08-13T23:01:36+0800",
+    "note": "E9 is frozen as calibration only for a new independent S2 cohort; this table must not be used to reinterpret E9 itself"
+  }
+}

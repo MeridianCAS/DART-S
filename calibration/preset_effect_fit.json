@@ -1,0 +1,89 @@
+{
+  "arms": {
+    "nose_up": {
+      "anchors": {
+        "15.0": [
+          3.2,
+          0.0
+        ],
+        "20.0": [
+          3.4,
+          5.0
+        ],
+        "25.0": [
+          2.8,
+          2.0
+        ],
+        "30.0": [
+          2.0,
+          1.0
+        ],
+        "35.0": [
+          3.0,
+          10.0
+        ]
+      }
+    },
+    "nose_down": {
+      "anchors": {
+        "15.0": [
+          -3.8,
+          0.0
+        ],
+        "20.0": [
+          -4.3,
+          -1.0
+        ],
+        "25.0": [
+          -2.5,
+          5.0
+        ],
+        "30.0": [
+          -2.5,
+          3.0
+        ],
+        "35.0": [
+          -1.2,
+          -4.0
+        ]
+      }
+    },
+    "torque_up": {
+      "anchors": {
+        "15.0": [
+          -0.3,
+          -5.0
+        ],
+        "20.0": [
+          -0.2,
+          -4.0
+        ],
+        "25.0": [
+          -0.7,
+          -3.0
+        ],
+        "30.0": [
+          -1.0,
+          -5.0
+        ],
+        "35.0": [
+          -0.6,
+          -6.0
+        ]
+      }
+    }
+  },
+  "source_files": [
+    "darts_bench_q1_a15_v13.json",
+    "darts_bench_q1_a20_v10_v16.json",
+    "darts_bench_q1_a20_v13.json",
+    "darts_bench_q1_a25_v13.json",
+    "darts_bench_q1_a30_v13.json",
+    "darts_bench_q1_a35_v13.json"
+  ],
+  "note": "d_theta0 (deg) and d_omega_y0 (deg/s) relative to neutral at 13 m/s; interpolated linearly in ramp angle and clamped outside the anchors",
+  "safe_landing_criterion": {
+    "pitch_deg": 35.0,
+    "roll_deg": 30.0
+  }
+}
