@@ -14,8 +14,6 @@ import math
 from dataclasses import asdict, dataclass
 from typing import Iterable, Mapping
 
-import numpy as np
-
 
 @dataclass(frozen=True)
 class CalibrationPoint:
@@ -222,32 +220,6 @@ class ActionConditionedDelta:
     @classmethod
     def zeros(cls) -> "ActionConditionedDelta":
         return cls(0.0, 0.0, 0.0, 0.0, 0.0, (0.0, 0.0, 0.0, 0.0), 0.0)
-
-    @classmethod
-    def from_array(cls, values: Iterable[float]) -> "ActionConditionedDelta":
-        vector = tuple(float(value) for value in values)
-        if len(vector) != 10:
-            raise ValueError("action-conditioned delta array must have 10 values")
-        return cls(
-            dtheta0_rad=vector[0],
-            domega0_radps=vector[1],
-            dvx_mps=vector[2],
-            dvz_mps=vector[3],
-            dz_m=vector[4],
-            dwheels_radps=(vector[5], vector[6], vector[7], vector[8]),
-            dT_s=vector[9],
-        )
-
-    def as_array(self) -> tuple[float, ...]:
-        return (
-            self.dtheta0_rad,
-            self.domega0_radps,
-            self.dvx_mps,
-            self.dvz_mps,
-            self.dz_m,
-            *self.dwheels_radps,
-            self.dT_s,
-        )
 
     @staticmethod
     def weighted_sum(

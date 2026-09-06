@@ -5,12 +5,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
-import random
 import statistics
 import sys
 from dataclasses import asdict
-from itertools import product
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]

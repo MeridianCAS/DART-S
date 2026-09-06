@@ -5,32 +5,12 @@ import hashlib
 import json
 import math
 from dataclasses import asdict, dataclass
-from typing import Any, Iterable, Mapping
-
-import numpy as np
+from typing import Iterable, Mapping
 
 from control.darts.calibration_map import ActionConditionedDelta
 
 
 NEUTRAL_PHYSICS_PRIOR_SCHEMA = "darts-neutral-takeoff-physics-prior/1"
-_NEUTRAL_ACTION_KIND = "neutral"
-_NEUTRAL_SCHEDULE_ID = "neutral"
-
-
-def _canonical_mapping_fingerprint(
-    payload: Mapping[str, Any],
-    *,
-    fingerprint_field: str,
-) -> str:
-    clean = dict(payload)
-    clean.pop(fingerprint_field, None)
-    return hashlib.sha256(json.dumps(
-        clean,
-        sort_keys=True,
-        separators=(",", ":"),
-        ensure_ascii=True,
-        allow_nan=False,
-    ).encode("utf-8")).hexdigest()
 
 
 @dataclass(frozen=True)

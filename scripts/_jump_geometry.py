@@ -12,7 +12,8 @@ REPO = Path(__file__).resolve().parent.parent
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 import scripts._natural_jump as nj
-import scripts._ramp_feather as rf
+import scripts._ramp_bench as bench
+import scripts._tp_perramp as tp
 
 # Beam lengths of the four active-suspension springs; cids are resolved once and
 # cached in the vehicle Lua VM because the beam table scan is not free per step.
@@ -383,7 +384,6 @@ def gap_landing_profile(peak_z, v0, gamma_deg, *, clearance_catch=0.4, gap_max=2
     pts = [(dx, zz) for (dx, zz) in pts if dx <= length]
     gap_samples = [T(dx) - zz for (dx, zz) in pts if dx < L - 0.5]
     land_slope_deg = -round(math.degrees(sm_rad * W(0.98)), 1)
-    feather_actual = 0.0
     meta = {"mode": "gap_valley", "dx_land": round(L, 2),
             "z_land": 0.0, "land_slope_deg": land_slope_deg,
             "gap_max_actual": round(max(gap_samples), 2) if gap_samples else 0.0,

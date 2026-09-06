@@ -1,11 +1,10 @@
 """Self-describing ``_provenance`` stamps plus a fail-closed time-base gate.
 
 Every cohort JSON this package writes carries a ``_provenance`` block whose
-``time_integrity_ok`` flag is computed at write time, and every analysis or
-plotting script reads its inputs through :func:`load_report` or asserts with
-:func:`assert_time_integrity`. Data with no stamp, a stamp that fails, or a
-path listed in the contaminated registry raises instead of being silently
-treated as clean.
+``time_integrity_ok`` flag is computed at write time, and every analysis
+script checks its inputs with :func:`assert_time_integrity`. Data with no
+stamp, a stamp that fails, or a path listed in the contaminated registry
+raises instead of being silently treated as clean.
 
 The verdict is outcome-based rather than flag-based:
 
@@ -22,8 +21,6 @@ import json
 import subprocess
 import time
 from pathlib import Path
-
-from control.darts.stats_util import median_or_none
 
 SCHEMA_VERSION = "darts-jump-report/2"   # v2 semantics: airtime is sim flight time
 AIRTIME_FIX_COMMIT = "5809bb3"           # deterministic-stepping fix
@@ -80,32 +77,6 @@ def make_provenance(dt_mode: str, sps=None, dt_eff=None, note: str | None = None
     if note:
         prov["note"] = note
     return prov
-
-
-def collect_field(obj, key):
-    """Collect every numeric value stored under ``key`` in nested containers."""
-    out = []
-
-    def w(o):
-        if isinstance(o, dict):
-            for k, v in o.items():
-                if k == key and isinstance(v, (int, float)):
-                    out.append(v)
-                else:
-                    w(v)
-        elif isinstance(o, list):
-            for x in o:
-                w(x)
-
-    w(obj)
-    return out
-
-
-def make_provenance_from_data(data, dt_mode: str, sps=None, note: str | None = None) -> dict:
-    """Stamp a cohort using the median per-jump ``dt_eff`` found in ``data``."""
-    med = median_or_none(collect_field(data, "dt_eff"))
-    agg = round(med, 4) if med is not None else None
-    return make_provenance(dt_mode, sps=sps, dt_eff=agg, note=note)
 
 
 def aggregate_provenance(
@@ -177,35 +148,6 @@ def registry_hit(path):
             if Path(p).match(gg) or (gg.strip("*") and gg.strip("*") in p):
                 return entry
     return None
-
-
-def is_time_clean(report_or_path, path=None):
-    """Non-raising form: return ``(ok, reason)`` for bulk loaders to filter on."""
-    try:
-        assert_time_integrity(report_or_path, path=path, require_time_metrics=True)
-        return True, "ok"
-    except ContaminatedDataError as e:
-        return False, str(e)
-
-
-def load_report(path, require_time_metrics: bool = True, allow_contaminated: bool = False):
-    """Read a cohort JSON and check its time base in one call.
-
-    Analysis and plotting scripts should read data through this function
-    rather than a bare ``json.load``. ``allow_contaminated=True`` downgrades
-    the gate to a warning and is meant for local debugging only.
-    """
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
-    try:
-        assert_time_integrity(data, path=str(path), require_time_metrics=require_time_metrics)
-    except ContaminatedDataError as e:
-        if allow_contaminated:
-            import sys
-            print(f"[provenance] WARN gate bypassed (--allow-contaminated): {e}",
-                  file=sys.stderr, flush=True)
-        else:
-            raise
-    return data
 
 
 def assert_time_integrity(report, path=None, require_time_metrics: bool = True):
