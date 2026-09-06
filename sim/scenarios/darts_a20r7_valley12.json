@@ -1,6 +1,6 @@
 {
   "name": "darts_a20r7_valley12",
-  "description": "Reference kicker geometry: 20 deg face, 7 m rise, convex lip R=35 m, landing on a -12 deg valley.",
+  "description": "Reference kicker geometry (Fig. 6 calibration lip): 20 deg face, 7 m rise, convex lip R=35 m, landing on a -12 deg valley.",
   "created": "2026-07-02 16:31:50 +0800",
   "geometry": {
     "ramp_mode": "kicker",

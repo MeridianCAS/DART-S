@@ -280,9 +280,7 @@ def kill_beamng_by_port(
     when ``kill_scope="port"`` so parallel cohorts on one box never kill each
     other. Executes :func:`build_port_kill_commands` (PID then ``fuser``).
     Returns the number of commands that exited 0. Non-Linux platforms are a
-    no-op because single-box multi-instance parallelism is a Linux/815
-    deployment concern; ``runner``/``platform_override`` are injected for
-    tests.
+    no-op; ``runner``/``platform_override`` are injected for tests.
     """
     runner = runner or subprocess.run
     plat = platform_override or sys.platform
@@ -683,8 +681,8 @@ class BeamNGSession(contextlib.AbstractContextManager):
     def __exit__(self, exc_type, exc, tb) -> None:                  # noqa: D401
         try:
             self.close()
-        except Exception as exc:                                    # noqa: BLE001
-            self._info(f"WARN close raised: {exc!r}")
+        except Exception as err:                                    # noqa: BLE001
+            self._info(f"WARN close raised: {err!r}")
 
     def _resolve_beamngpy_factory(self) -> Any:
         if self._beamngpy_factory is not None:

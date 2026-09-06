@@ -21,8 +21,8 @@ Landing is latched at first contact after apex (nc>=1); the pz<0.75 branch is
 only a fallback, so the +/-8 cm ride-height difference between presets cannot
 bias the landing threshold. Impact az_peak is sampled over the same window.
 
-Deterministic stepping (SR-17): set_deterministic plus control.pause() before
-the loop, never resumed inside it; dt_eff is calibrated ballistically.
+Deterministic stepping: set_deterministic plus control.pause() before the
+loop, never resumed inside it; dt_eff is calibrated ballistically.
 
 Usage: python scripts/darts_bench.py --angle 20 --speeds 10 13 16 --rolls 5
 Menu-wedge guard: DARTS_BNG_PRE_LAUNCH_KILL=1
@@ -67,7 +67,6 @@ from control.darts.wheel_budget import (
 )
 from control.darts.susp_precondition import (
     GATE_TABLE_PATH,
-    PresetAwareTakeoffSet,
     SelectorUncertainty,
     SYSTEM_OUTCOME_TABLE_PATH,
     preset_effect,
@@ -156,12 +155,11 @@ ARMS = {
                     "f_theta": True, "air_law": "dart_diff"},
     "dart_s_no_cut": {"susp": (0.0, 0.0, 0.0, 0.0), "bias": 0.0, "gate": True,
                       "f_theta": True, "air_law": "dart_diff", "lip_cut_m": 0.0},
-    # Formal default after matched-speed E9 + rough pass-through confirmation.
-    # Keep the explicit no-cut arm for historical artifact compatibility.
+    # Paper default: gate, f_theta, DART law, no lip cut.
     "dart_s_system": {"susp": (0.0, 0.0, 0.0, 0.0), "bias": 0.0, "gate": True,
                       "f_theta": True, "air_law": "dart_diff", "lip_cut_m": 0.0},
-    # S3 guard-mechanism confirmatory aliases.  Guard settings live in the arm
-    # spec so guarded/unguarded laws can run inside one randomized block.
+    # Guard settings live in the arm spec so guarded/unguarded laws can run
+    # inside one randomized block.
     "dart_guarded": {
         "susp": (0.0, 0.0, 0.0, 0.0), "bias": 0.0, "air_law": "dart_diff",
         "dart_wheel_speed_cap_radps": 200.0,
@@ -461,7 +459,7 @@ def one_run(bng, veh, *, arm, spec, base_x, run_up, v_entry, R_flight, args, imu
     imu_rows = [] if imu is not None else None
     if imu is not None:
         _imu_drain(imu)  # discard whatever the previous roll left in the buffer
-    landing_arm = spec.get("landing")  # None / "soft" / "soft_lift"(E4)
+    landing_arm = spec.get("landing")  # None / "soft" / "soft_lift"
     landing_fired = False
     # Airborne pitch inner loop: throttle pitches the body up, brake pitches it down
     air_ctrl = PitchAttitudeController() if spec.get("air") else None
@@ -544,7 +542,7 @@ def one_run(bng, veh, *, arm, spec, base_x, run_up, v_entry, R_flight, args, imu
     rf._step(bng, 3)
     tp.set_side_cam(bng, base_x, peak_x, R_flight, run_up)
     bench.force_gameplay(bng)          # clear the menu state (includes a resume)
-    try: bng.control.pause()           # SR-17: back to stepped, never resumed below
+    try: bng.control.pause()           # back to stepped, never resumed below
     except Exception: pass
     # settle on the brakes
     for _ in range(12):
@@ -1814,8 +1812,15 @@ def main(argv=None) -> int:
     p.add_argument("--max-steps", type=int, default=1400)
     p.add_argument("--tag", default="ab1")
     p.add_argument("--jump-scenario", default=None,
-                   help="load a jump-scenario library entry (e.g. darts_a20r7_valley12) for its geometry")
+                   help="load a jump-scenario library entry (e.g. darts_a20r7_valley12) for its geometry; "
+                        "flags given explicitly on the command line override the loaded values")
+    p.add_argument("--lip-radius", type=float, default=None,
+                   help="kicker convex-lip radius (m); overrides the scenario value")
+    p.add_argument("--lip-sweep-deg", type=float, default=None,
+                   help="kicker lip sweep (deg): arc length = radius x sweep; overrides the scenario value")
     args = p.parse_args(argv)
+    cli_dests = {tok.lstrip("-").split("=")[0].replace("-", "_")
+                 for tok in (argv if argv is not None else sys.argv[1:]) if tok.startswith("--")}
     if not 0.0 <= float(args.preset_scale) <= 1.0:
         raise SystemExit("--preset-scale must be in [0, 1]")
     if float(args.lip_cut_speed_bias_mps) < 0:
@@ -1907,8 +1912,8 @@ def main(argv=None) -> int:
     args.nocut_speed_variant_map = nocut_speed_variant_map
 
     if args.jump_scenario:
-        _applied = jlib.apply_to_args(args, args.jump_scenario)
-        if hasattr(args, "angles") and isinstance(args.angles, (list, tuple)) and len(args.angles) > 0:
+        _applied = jlib.apply_to_args(args, args.jump_scenario, skip=cli_dests)
+        if "angle" not in cli_dests and isinstance(getattr(args, "angles", None), (list, tuple)) and args.angles:
             args.angle = args.angles[0]
         print(f"[darts] loaded jump scenario {args.jump_scenario!r}; applied keys: {_applied}", flush=True)
 
@@ -1992,7 +1997,7 @@ def main(argv=None) -> int:
         if not bench.ensure_gameplay_live(bng, veh):
             print("[darts] ABORT(exit 6): BeamNG wedged in the menu. Kill everything and rerun.", flush=True)
             return 6
-        # SR-18 spawn liveness gate: only continue while the vehicle Lua channel answers
+        # Spawn liveness gate: only continue while the vehicle Lua channel answers
         alive = nj._vlua(veh, "return 'alive'")
         if str(alive).strip().strip("'\"") != "alive":
             print(f"[darts] ABORT(exit 7): vehicle Lua channel is dead (alive={alive!r}). "
@@ -2270,7 +2275,7 @@ def main(argv=None) -> int:
                },
                "_provenance": make_provenance(
                    "deterministic_stepped", sps=100, dt_eff=dt_med,
-                   note="DART-S takeoff A/B; SR-17 pause-stepped; dt_eff from ballistic calibration; "
+                   note="DART-S takeoff A/B; pause-stepped; dt_eff from ballistic calibration; "
                         "T_flight=steps x 0.01 s; landing latched at first contact")}
         outp.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
         if checkpoint_path.exists():

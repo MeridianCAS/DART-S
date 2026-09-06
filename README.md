@@ -2,7 +2,7 @@
 
 Everything needed to **re-run the experiments** behind *DART-S:
 Reachability-Audited Active-Suspension Preconditioning for Off-Road Vehicle
-Jumps*. The package ships the BeamNG experiment runner, the selector and
+Jumps* ([arXiv:2608.20275](https://arxiv.org/abs/2608.20275)). The package ships the BeamNG experiment runner, the selector and
 reachability code it calls, the calibration tables the selector reads, the
 frozen confirmatory design, cohort queue scripts, and vehicle configs.
 
@@ -41,13 +41,15 @@ scripts/
   confirmatory_analysis.py     Per-session gate and pooled cluster inference for the confirmatory runs
   actuator_probe.py            Standing-vehicle actuator authority probe (Table I, first row)
   reachcert_numeric_xval.py    LP cross-validation of the closed-form certificate (no simulator)
+  fig06_mechanism_analysis.py  Fig. 6 paired contrasts and lift-off windows → data/derived/fig06_mechanism.json
+  fig06_mechanism_plot.py      Fig. 6 panels from that file
   experiments/*.sh             Cohort queue scripts (see table below)
 control/darts/                 Selector, calibration map, reachability screen, erosion, wheel budget,
                                landing safety, release-phase action, provenance gate
 calibration/                   Calibration tables the selector reads, plus the frozen design
 data_pipeline/beamng_session.py  Simulator attach / ready / freerun / teardown helpers
 tests/                         Unit tests for the certificate, selector, calibration map, and statistics
-sim/scenarios/                 Geometry records loadable with --jump-scenario (reference and held-out)
+sim/scenarios/                 Kicker geometry records loadable with --jump-scenario (20° Fig. 6 lip, 24° held-out)
 vehicles/sbr/                  4WIDS part configs: nominal, stroke ratios, mass and CoG variants
 data/cohorts/                  Generated cohort JSONs (empty until you run)
 data/derived/                  Probe, analysis, and cross-validation outputs
@@ -64,7 +66,7 @@ data/queue_runs/               Queue logs and DONE markers (resumable reruns)
 ## Checks that need no simulator
 
 ```bash
-python -m pytest tests -q                 # 173 tests: certificate, selector, calibration map, statistics
+python -m pytest tests -q                 # 171 tests: certificate, selector, calibration map, statistics
 python scripts/confirmatory_design.py --out calibration/confirmatory_design.json --verify
 python scripts/reachcert_numeric_xval.py  # → data/derived/cert_numeric_xval.json
 ```
@@ -150,6 +152,7 @@ lock on entry, so run one at a time — the machine has a single simulator port.
 | `queue_tab01_ablations.sh`   | **Table I** stroke scaling, takeoff end versus both ends, landing-end variants, airborne-channel interaction                          |
 | `queue_tab01_robustness.sh`  | **Table I** mass ±20 %, forward CoG shift, entry-speed dispersion                                                                    |
 | `queue_tab01_selector.sh`    | **Table I** selector execution branches and the 2.0 versus 0.8 s decision lead                                                       |
+| `queue_fig06_mechanism.sh`   | **Fig. 6** convex-lip mechanism on the 20° kicker: R = 35 m ladder, R = 22 m held-out ladder, 2 × 2 arc-length cells, 18 m/s stroke traces |
 
 ```bash
 bash scripts/experiments/queue_confirmatory.sh       # ~20 h; gates each session as it lands
@@ -158,6 +161,8 @@ bash scripts/experiments/queue_fig04_speed_ladder.sh
 bash scripts/experiments/queue_tab01_ablations.sh
 bash scripts/experiments/queue_tab01_robustness.sh
 bash scripts/experiments/queue_tab01_selector.sh
+bash scripts/experiments/queue_fig06_mechanism.sh    # ends by running fig06_mechanism_analysis.py
+python scripts/fig06_mechanism_plot.py               # Fig. 6 panels (needs matplotlib)
 python scripts/actuator_probe.py                     # Table I static authority row
 ```
 
@@ -200,16 +205,37 @@ Every cohort file is `data/cohorts/darts_bench_<TAG>.json`.
 | Table I — platform robustness                | `queue_tab01_robustness`      | `tab01_rob_m080`, `tab01_rob_m120`, `tab01_rob_cogfront`            |
 | Table I — selector execution                 | `queue_tab01_selector`        | `tab01_sel_prepare`, `tab01_sel_refuse`, `tab01_sel_passthrough`    |
 | Table I — decision lead                      | `queue_tab01_selector`        | `tab01_sel_prepare` (2.0 s) versus `tab01_sel_lead0p8` (0.8 s)      |
+| Fig. 6(a) — R = 35 m ladder                  | `queue_fig06_mechanism`       | `fig06_r35_v13`, `fig06_r35_v15`, `fig06_r35_v16p5`, `fig06_r35_v18`, `fig06_r35_v19p5` |
+| Fig. 6(a) — R = 22 m held-out ladder         | `queue_fig06_mechanism`       | `fig06_r22_v12`, `fig06_r22_v13`, `fig06_r22_v14p25`, `fig06_r22_v15p5` |
+| Fig. 6(b) — 18 m/s stroke traces             | `queue_fig06_mechanism`       | `fig06_r35_v18` (`stroke_trace` per run)                            |
+| 2 × 2 radius-by-arc-length at n(v) ≈ 0       | `queue_fig06_mechanism`       | `fig06_r35s5_v18`, `fig06_r22s12p73_v14p25` with the two ladder cells |
+| Fig. 6 analysis and panels                   | `fig06_mechanism_*.py`        | `data/derived/fig06_mechanism.json`, `.png`, `.pdf`                 |
 
-## Scope
+## Fig. 6 mechanism cohorts
 
-The mechanism measurements in Fig. 6 come from a different rig: the convex-lip
-kicker bench of the prior DART work, instrumented with suspension presets and
-per-axle stroke traces. That instrumented bench is not part of this package or
-of the DART reproduction package, so Fig. 6 cannot be re-run from here. The
-vehicle configs in `vehicles/sbr/` are the ones those cohorts used, and the two
-entries in `sim/scenarios/` record the reference and held-out kicker
-geometries.
+The published Fig. 6 was collected on the kicker bench of the prior DART work,
+with the suspension preset and four-corner stroke tracing added to that runner.
+`queue_fig06_mechanism.sh` re-implements the same design on this package's
+runner: the 20° kicker from `sim/scenarios/darts_a20r7_valley12` (R = 35 m
+lip, 7 m rise, −12° valley landing), `dart_only` (DART alone) paired by roll
+against `dart_s_forced` (nose-up preset plus DART), entry speed drawn per roll
+within ±0.25 m/s. `--lip-radius 22` and `--lip-sweep-deg` override the loaded
+lip for the held-out and arc-length cells. The 13 and 18 m/s cells on R = 35 m
+carry 30 pairs, the rest 10; the 18 m/s cell also records `stroke_trace`.
+
+`fig06_mechanism_analysis.py` writes `data/derived/fig06_mechanism.json`: the
+per-speed paired median takeoff pitch-rate difference with its sign-test
+p-value, v* = √(gR cos α) per lip, the 2 × 2 arc-length contrasts, and the
+front-to-rear lift-off window per arm from the spring lengths (droop plateau
+per axle). `fig06_mechanism_plot.py` draws both panels from that file to
+`data/derived/fig06_mechanism.png` and `.pdf`. Cohort JSONs and these derived
+files are generated locally and are not shipped.
+Expect the paper's pattern rather than its numbers: no pitch-rate shift below
+about 15 m/s on R = 35 m, an adverse shift near v* ≈ 18 m/s that the
+lift-off window explains, and none on the R = 22 m lip.
+
+`darts_a24r7_valley12` is a separate 24° / R = 35 m held-out geometry and is
+not used by Fig. 6.
 
 ## Reproducibility
 
@@ -233,15 +259,19 @@ If you use this reproduction package or build on DART-S, please cite:
 
 ```bibtex
 @misc{hu2026darts,
-  title  = {DART-S: Reachability-Audited Active-Suspension Preconditioning
-            for Off-Road Vehicle Jumps},
-  author = {Yu Hu and Fangzhou Zhao and Liang Chen and Chen Min and Wei Li and
-            Mingyuan Sang and Jiajia Ma and Shican Chen and Di Pang and
-            Baolei Chen},
-  year   = {2026},
-  note   = {arXiv preprint},
+  title         = {DART-S: Reachability-Audited Active-Suspension Preconditioning
+                   for Off-Road Vehicle Jumps},
+  author        = {Yu Hu and Fangzhou Zhao and Liang Chen and Chen Min and Wei Li and
+                   Mingyuan Sang and Jiajia Ma and Shican Chen and Di Pang and
+                   Baolei Chen},
+  year          = {2026},
+  eprint        = {2608.20275},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2608.20275},
 }
 ```
 
 The prior work this package builds on is DART
-([arXiv:2607.29011](https://arxiv.org/abs/2607.29011)).
+([arXiv:2607.29011](https://arxiv.org/abs/2607.29011)); its reproduction
+package is at <https://github.com/MeridianCAS/DART>.

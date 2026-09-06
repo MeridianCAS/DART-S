@@ -4,6 +4,10 @@ title: DART-S Experiment Reproduction Package
 type: software
 license: Apache-2.0
 repository-code: https://github.com/MeridianCAS/DART-S
+identifiers:
+  - type: other
+    value: arXiv:2608.20275
+    description: The DART-S paper this package reproduces
 authors:
   - family-names: Hu
     given-names: Yu
@@ -62,4 +66,8 @@ preferred-citation:
     - family-names: Chen
       given-names: Baolei
   journal: arXiv
-  notes: cs.RO preprint
+  url: https://arxiv.org/abs/2608.20275
+  identifiers:
+    - type: other
+      value: arXiv:2608.20275
+      description: arXiv preprint (cs.RO)

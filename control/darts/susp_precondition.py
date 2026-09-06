@@ -228,24 +228,10 @@ def canonical_release_timing(entry: dict) -> tuple[dict | None, str | None]:
         "protocol_fingerprint": raw.get("protocol_fingerprint"),
     }, None
 
-# --- Curvature-saturation safeguard ------------------------------------------
-# Two channels compete near a convex lip, and the veto guards the adverse one.
-# The gravity-window channel is adverse: as n(v) = g cos(alpha) - v^2 / R_lip
-# approaches zero the front axle unloads early, the preset stretches the
-# front-airborne window by 0.19 to 0.33 s, and strong nose-down pitch
-# acceleration (-50 to -121 deg/s^2) persists inside it. The spin-reaction
-# channel is favourable: the unloaded front wheels are spun up by the
-# drivetrain and their reaction torque pitches the nose up, by up to +95 rad/s
-# of takeoff wheel-speed difference on a tight lip. Their competition sets the
-# net response, and near-cancellation is what leaves the short tight lip
-# benign.
-#
-# The threshold n(v) <= n_min, calibrated on the R = 35 m ladder, intercepts
-# every measured adverse condition. On tighter lips it can fire where the
-# spin channel already cancels the adverse one, which forfeits no significant
-# measured gain. n(v) is a ramp-profile-specific indicator of contact-timing
-# reversal, not a statistic that transfers across lip radii: held-out
-# conditions falsify using it as an extrapolation rule.
+# Curvature-saturation veto: as n(v) = g cos(alpha) - v^2 / R_lip approaches
+# zero the front axle unloads early and the preset becomes adverse. The
+# threshold n(v) <= n_min is calibrated on the R = 35 m ladder and does not
+# transfer across lip radii.
 G_MPS2 = 9.81
 CURVATURE_N_MIN = 2.0
 ROUGH_VETO_MIN_BUMPS = 6
