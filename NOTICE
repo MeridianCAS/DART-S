@@ -1,0 +1,11 @@
+DART-S experiment reproduction package
+Copyright 2026 MeridianCAS
+
+The Apache License, Version 2.0 (see LICENSE) covers only the code and data
+written for this project.
+
+This repository contains no BeamNG files. The vehicle configs in vehicles/sbr/
+are derived from BeamNG.tech content; scripts/build_vehicles.py generates them
+locally from the recipes in vehicles/recipes/ and your own licensed
+BeamNG.tech 0.38.3 install. BeamNG.tech and its content belong to BeamNG GmbH
+and need a license from BeamNG GmbH.

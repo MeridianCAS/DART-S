@@ -9,3 +9,19 @@ data/derived/*
 !data/derived/.gitkeep
 data/queue_runs/*
 !data/queue_runs/.gitkeep
+# Vehicle files generated from your BeamNG.tech install by scripts/build_vehicles.py
+/vehicles/sbr/darts_4motor.jbeam
+/vehicles/sbr/darts_4motor.pc
+/vehicles/sbr/darts_4motor_cogfront.pc
+/vehicles/sbr/darts_4motor_m080.pc
+/vehicles/sbr/darts_4motor_m120.pc
+/vehicles/sbr/darts_4motor_r010.pc
+/vehicles/sbr/darts_4motor_r020.pc
+/vehicles/sbr/darts_coilover_F_active_r010.jbeam
+/vehicles/sbr/darts_coilover_F_active_r015.jbeam
+/vehicles/sbr/darts_coilover_F_active_r020.jbeam
+/vehicles/sbr/darts_coilover_R_active_r010.jbeam
+/vehicles/sbr/darts_coilover_R_active_r015.jbeam
+/vehicles/sbr/darts_coilover_R_active_r020.jbeam
+/vehicles/sbr/sbr_body_m080.jbeam
+/vehicles/sbr/sbr_body_m120.jbeam
